@@ -1,6 +1,4 @@
-import time
 from selenium.webdriver.common.by import By
-
 from base_page import BasePage
 from tests.config import product_1_url, product_2_url, product_3_url
 
