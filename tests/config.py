@@ -1,0 +1,7 @@
+baseurl = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en"
+product_1_url = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en/Browse-Products-by-Application/3D-Cell-Culture/Air-Liquid-Interface/Transwell%C2%AE-Clear-Inserts%2C-Polyester-%28PET%29-membrane/p/3470"
+product_2_url = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en/Browse-Products-by-Application/Cell-Therapy-and-Vaccines/Advanced-Surfaces/Corning%C2%AE-PureCoat%E2%84%A2-ECM-Mimetic-Cultureware-Flasks/p/356243"
+product_3_url = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en/General-Labware/Beakers/Beakers%2C-Glass/PYREX%C2%AE-Beakers%2C-Low-Form%2C-Double-Scale%2C-Graduated/p/1000-100"
+b2b_url = "https://uat-ecatalog.corning.com/life-sciences/b2b/US/en"
+b2c_url = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en"
+browser = ""
