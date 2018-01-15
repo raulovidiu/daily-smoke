@@ -1,6 +1,6 @@
 import pytest
 
-from pages import product_page, header, store_and_region_section
+from pages import product_page, header, store_and_region_section, guest_login_and_checkout
 
 
 class TestGuestCheckout():
@@ -16,7 +16,11 @@ class TestGuestCheckout():
     def store_and_region(self, driver):
         return store_and_region_section.StoreAndRegionSection(driver)
 
-    def test_guest_checkout(self, product, header_section, store_and_region):
+    @pytest.fixture()
+    def guest_login_checkout(self, driver):
+        return guest_login_and_checkout.LoginAndCheckOut(driver)
+
+    def test_guest_checkout(self, product, header_section, store_and_region, guest_login_checkout):
         product.navigate_to_product1_page()
         store_and_region.choose_consumer_store()
         store_and_region.choose_united_states_region()
@@ -43,3 +47,6 @@ class TestGuestCheckout():
         assert ("(3)" == header_section.get_product_count())
 
         product.click_on_checkout_in_cart()
+        product.click_on_checkout_in_cart()
+
+        guest_login_checkout.checkout_as_guest("test@siteworx.com", "test@siteworx.com")
