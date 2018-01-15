@@ -6,13 +6,13 @@ from tests.config import product_1_url, product_2_url, product_3_url
 
 
 class ProductPage(BasePage):
-    _product_title = {"by": By.CSS_SELECTOR,
-                      "value": "div.product-details.page-title > div.name.product-details--name > h1 > span"}
     _product_id = {"by": By.CSS_SELECTOR, "value": "div.name.product-details--name > span"}
-    _product_price = {"by": By.CSS_SELECTOR,
-                      "value": "div.product-details--container > div.row > div:nth-child(3) > div > div > p"}
-    _add_to_cart = {"by": By.CSS_SELECTOR, "value": "#addToCartButton"}
-    _close_button = {"by": By.CSS_SELECTOR, "value": "#cboxClose"}
+    _add_to_cart = {"by": By.ID, "value": "addToCartButton"}
+    _continue_shopping = {"by": By.CSS_SELECTOR,
+                          "value": "#addToCartLayer > div.flex-container > a.btn.btn-link.js-mini-cart-close-button"}
+    _checkout = {"by": By.CSS_SELECTOR, "value": "a.btn.btn-primary.add-to-cart-button"}
+    _checkout_in_cart = {"by": By.CSS_SELECTOR,
+                         "value": "div.col-sm-12.col-md-6.cart-actions--print.cart__actions > button.btn.btn-primary.btn-block.btn--continue-checkout.js-continue-checkout-button"}
 
     def ___init___(self, driver):
         self.driver = driver
@@ -29,17 +29,20 @@ class ProductPage(BasePage):
         self._visit(product_3_url)
         time.sleep(1)
 
-    def get_product_title(self):
-        return self._get_text(self._product_title)
-
     def get_product_id(self):
         return self._get_text(self._product_id)
-
-    def get_product_price(self):
-        return self._get_text(self._product_price)
 
     def click_on_add_to_cart_button(self):
         return self._click(self._add_to_cart)
 
-    def click_on_close_button(self):
-        return self._click(self._close_button)
+    def click_on_continue_shopping(self):
+        self._wait_for_is_displayed(self._continue_shopping, 60)
+        return self._click(self._continue_shopping)
+
+    def click_on_checkout(self):
+        self._wait_for_is_displayed(self._checkout, 60)
+        return self._click(self._checkout)
+
+    def click_on_checkout_in_cart(self):
+        self._wait_for_is_displayed(self._checkout_in_cart, 60)
+        return self._click(self._checkout_in_cart)
