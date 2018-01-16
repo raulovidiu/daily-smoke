@@ -1,5 +1,6 @@
 import time
 from selenium.webdriver.common.by import By
+
 from pages.base_page import BasePage
 
 
@@ -30,12 +31,21 @@ class Checkout(BasePage):
     _card_expiration_month_dropdown = {"by": By.CSS_SELECTOR, "value": 'select[name="card_expirationMonth"]'}
     _card_expiration_year_dropdown = {"by": By.CSS_SELECTOR, "value": 'select[name="card_expirationYear"]'}
     _security_code_input = {"by": By.CSS_SELECTOR, "value": 'input[name="card_cvNumber"]'}
-    _terms_checkbox = {"by": By.CSS_SELECTOR, "value": 'select[name="termsCheck"]'}
+    _terms_checkbox = {"by": By.CSS_SELECTOR, "value": 'input[name="termsCheck"]'}
     _place_order_button = {"by": By.CSS_SELECTOR, "value": '.checkoutSummaryButton'}
 
-    def add_new_address(self, country, title, first_name, last_name, organization, address, town_or_city, state, postal_code):
+    _check_box = {"by": By.CSS_SELECTOR, "value": 'input[name="useDeliveryAddress"]'}
+
+    def add_new_address(self, country, title, first_name, last_name, organization, address, town_or_city, state,
+                        postal_code):
+
+        # Payment Type section
         self._click(self._payment_type_submit_button)
+
+        # Shipping Address section
         self._click(self._add_new_address_button)
+
+        # Add New Address section
         self._wait_for_is_displayed(self._country_dropdown_menu, 60)
         self._select_dropdown_option(self._country_dropdown_menu, country)
         self._wait_for_is_displayed(self._title_dropdown_menu, 60)
@@ -49,17 +59,22 @@ class Checkout(BasePage):
         self._type(self._zip_postal_code_input, postal_code)
         self._click(self._add_address_button)
         self._click(self._shipping_delivery_button)
+
+        # Shipping Method section
         self._click(self._delivery_method_button)
+
+        # Payment & Billing Address section
+        time.sleep(10)
         self._click(self._next_payment_button)
 
     def add_card_details(self, card_type, card_number, exp_month, exp_year, security_code):
-        time.sleep(30)
-        self._wait_for_is_displayed(self._card_type_dropdown, 60)
+        # Review Order section
         self._select_dropdown_option(self._card_type_dropdown, card_type)
-        time.sleep(30)
         self._type(self._card_number_input, card_number)
         self._select_dropdown_option(self._card_expiration_month_dropdown, exp_month)
         self._select_dropdown_option(self._card_expiration_year_dropdown, exp_year)
-        self._select_dropdown_option(self._security_code_input, security_code)
+        self._type(self._security_code_input, security_code)
+        self._wait_for_is_displayed(self._terms_checkbox, 5)
         self._click(self._terms_checkbox)
         self._click(self._place_order_button)
+
