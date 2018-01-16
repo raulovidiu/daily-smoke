@@ -1,4 +1,6 @@
 import pytest
+
+from helpers.utils_methods import SaveOrderInformationToFile
 from pages import product_page, header_section, store_and_region_section, guest_login_and_checkout_page, checkout_page, \
     order_confirmation_page
 
@@ -53,7 +55,7 @@ class TestGuestCheckout():
         print ("Product" + product.get_product_id() + " was successfully added to cart")
         product.click_on_checkout()
         assert ("(3)" == header_section.get_product_count())
-        print ("\n The user successfully transitioned to the cart page")
+        print ("\n Guest successfully transitioned to the cart page")
 
         product.click_on_checkout_in_cart()
         product.click_on_checkout_in_cart()
@@ -61,11 +63,16 @@ class TestGuestCheckout():
         guest_login_checkout.checkout_as_guest("test@siteworx.com", "test@siteworx.com")
         print ("\n Guest successfully authenticated")
 
-        print ("\n The user successfully transitioned to the checkout page")
+        print ("\n Guest successfully transitioned to the checkout page")
 
         checkout.add_new_address("United States", "Mr.", "Tester", "Test", "Siteworx", "Plopilor 63", "Portland", "Oregon", "1234")
 
         checkout.add_card_details("Visa", "4111111111111111", "12", "2019", "113")
 
-        order_confirmation_page.return_order_id()
+        print ("\n Guest successfully got through the checkout flow")
+
         print(order_confirmation_page.return_order_id())
+
+        print ("\n Guest placed the order and successfully transitioned to the order confirmation page")
+
+        SaveOrderInformationToFile.save_order_information(order_confirmation_page.return_order_id())
