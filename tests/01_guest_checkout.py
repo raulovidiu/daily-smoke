@@ -1,6 +1,6 @@
 import pytest
 
-from helpers.utils_methods import SaveOrderInformationToFile
+from helpers import utils_methods
 from pages import product_page, header_section, store_and_region_section, guest_login_and_checkout_page, checkout_page, \
     order_confirmation_page
 
@@ -30,7 +30,11 @@ class TestGuestCheckout():
     def order_confirmation_page(self, driver):
         return order_confirmation_page.OrderConfirmationPage(driver)
 
-    def test_guest_checkout(self, product, header_section, store_and_region, guest_login_checkout, checkout, order_confirmation_page):
+    @pytest.fixture()
+    def save_order_information_to_file(self, driver):
+        return utils_methods.SaveOrderInformationToFile(driver)
+
+    def test_guest_checkout(self, product, header_section, store_and_region, guest_login_checkout, checkout, order_confirmation_page, save_order_information_to_file):
         product.navigate_to_product1_page()
         store_and_region.choose_consumer_store()
         store_and_region.choose_united_states_region()
@@ -60,19 +64,20 @@ class TestGuestCheckout():
         product.click_on_checkout_in_cart()
         product.click_on_checkout_in_cart()
 
-        guest_login_checkout.checkout_as_guest("test@siteworx.com", "test@siteworx.com")
+        guest_login_checkout.checkout_as_guest("cmilchis@siteworx.com", "cmilchis@siteworx.com")
         print ("\n Guest successfully authenticated")
 
         print ("\n Guest successfully transitioned to the checkout page")
 
-        checkout.add_new_address("United States", "Mr.", "Tester", "Test", "Siteworx", "Plopilor 63", "Portland", "Oregon", "1234")
+        checkout.add_new_address("United States", "Mr.", "Tester", "Test", "Siteworx", "Plopilor 63", "Portland", "Oregon", "54321")
 
         checkout.add_card_details("Visa", "4111111111111111", "12", "2019", "113")
 
         print ("\n Guest successfully got through the checkout flow")
 
-        print(order_confirmation_page.return_order_id())
+        print("\n" + order_confirmation_page.return_order_id())
 
         print ("\n Guest placed the order and successfully transitioned to the order confirmation page")
 
-        SaveOrderInformationToFile.save_order_information(order_confirmation_page.return_order_id())
+        the_returned_order_id = order_confirmation_page.return_order_id()
+        save_order_information_to_file.save_order_information(the_returned_order_id)
