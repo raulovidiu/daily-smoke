@@ -78,3 +78,17 @@ class Checkout(BasePage):
         self._click(self._terms_checkbox)
         self._click(self._place_order_button)
 
+    def b2c_checkout_flow(self):
+        # Payment Type section
+        self._click(self._payment_type_submit_button)
+
+        # Shipping Address section
+        self._click(self._shipping_delivery_button)
+
+        # Shipping Method section
+        self._click(self._delivery_method_button)
+
+        # Payment & Billing Address section
+        time.sleep(10)
+        self._click(self._next_payment_button)
+
