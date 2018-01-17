@@ -1,4 +1,5 @@
 import pytest
+import time
 
 from helpers import utils_methods
 from pages import b2c_login_page, store_and_region_section, quick_order_page, product_page, checkout_page, \
@@ -41,8 +42,10 @@ class TestAuthenticatedB2cCheckout():
         store_and_region.choose_united_states_region()
 
         b2c_login.login_as_a_b2c_user("cmilchis.ls@gmail.com", "Test@123a")
+        time.sleep(10)
         print("\n The B2C user successfully authenticated")
 
+        quick_order.navigate_to_b2c_quick_order_page()
         quick_order.place_an_order_in_the_quick_order_page("6875-SB", "AP-8-200", "1000-100")
         print("\n The user successfully added the products in the cart and reached the Cart section")
 
