@@ -22,6 +22,8 @@ class Checkout(BasePage):
     _add_address_button = {"by": By.CSS_SELECTOR, "value": 'button[id="addressSubmit"]'}
     _shipping_delivery_button = {"by": By.ID, "value": "shippingDeliverySubmit"}
 
+    _purchase_order_input = {"by": By.ID, "value": "PurchaseOrderNumber"}
+
     _delivery_method_button = {"by": By.ID, "value": "deliveryMethodSubmit"}
 
     _next_payment_button = {"by": By.CSS_SELECTOR, "value": ".checkout-next"}
@@ -91,4 +93,24 @@ class Checkout(BasePage):
         # Payment & Billing Address section
         time.sleep(10)
         self._click(self._next_payment_button)
+
+    def b2b_checkout_flow(self, payment_number):
+        # Payment Type section
+        self._type(self._purchase_order_input, payment_number)
+        self._press_enter_button(self._purchase_order_input)
+        # self._wait_for_is_displayed(self._payment_type_submit_button, 10)
+        # self._click(self._payment_type_submit_button)
+
+        # Shipping Method section
+        time.sleep(10)
+        self._wait_for_is_displayed(self._delivery_method_button, 10)
+        self._click(self._delivery_method_button)
+
+        # Review Order section
+        time.sleep(10)
+        self._wait_for_is_displayed(self._terms_checkbox, 10)
+        self._click(self._terms_checkbox)
+        self._click(self._place_order_button)
+
+
 

@@ -1,2 +1,3 @@
 Artifacts for B2B User - Order IDs and their timestamp
 
+Order Number is 00200282, and was placed at Wed Jan 17 14:35:51 2018
