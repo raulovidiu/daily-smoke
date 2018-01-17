@@ -47,27 +47,20 @@ class TestAuthenticatedB2cCheckout():
 
         quick_order.navigate_to_b2c_quick_order_page()
         quick_order.place_an_order_in_the_quick_order_page("6875-SB", "AP-8-200", "1000-100")
-        print("\n The user successfully added the products in the cart and reached the Cart section")
+        print("\n B2C user successfully added the products in the cart and reached the Cart section")
 
         product.click_on_checkout_in_cart()
         product.click_on_checkout_in_cart()
-        print("\n The user successfully reached the Checkout section")
+        print("\n B2C user successfully reached the Checkout section")
 
         checkout_section.b2c_checkout_flow()
         checkout_section.add_card_details("Visa", "4111111111111111", "12", "2019", "113")
 
-        print ("\n Guest successfully got through the checkout flow")
+        print ("\n B2C user successfully got through the checkout flow")
 
         print("\n" + order_confirmation_page.return_order_id())
 
-        print ("\n Guest placed the order and successfully transitioned to the order confirmation page")
+        print ("\n B2C user placed the order and successfully transitioned to the order confirmation page")
 
         the_returned_order_id = order_confirmation_page.return_order_id()
-        save_order_information_to_file.save_order_information(the_returned_order_id)
-
-
-
-
-
-
-
+        save_order_information_to_file.b2c_save_order_information(the_returned_order_id)
