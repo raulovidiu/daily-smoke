@@ -80,4 +80,4 @@ class TestGuestCheckout():
         print ("\n Guest placed the order and successfully transitioned to the order confirmation page")
 
         the_returned_order_id = order_confirmation_page.return_order_id()
-        save_order_information_to_file.save_order_information(the_returned_order_id)
+        save_order_information_to_file.guest_save_order_information(the_returned_order_id)

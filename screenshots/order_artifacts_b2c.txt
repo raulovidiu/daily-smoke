@@ -1,0 +1,4 @@
+Artifacts for B2C User - Order IDs and their timestamp
+
+Order Number is 00200257, and was placed at Wed Jan 17 10:27:20 2018
+Order Number is 00200258, and was placed at Wed Jan 17 10:32:16 2018
