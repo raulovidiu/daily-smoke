@@ -36,7 +36,7 @@ class BasePage:
         return self.driver.current_url
 
     def _take_screenshot(self, image_name):
-        self.location = 'D:/daily_smoke/screenshots/'
+        self.location = 'D:/daily_smoke/screenshots/pngs/'
         return self.driver.save_screenshot(self.location + image_name)
 
     def _hover(self, locator):
