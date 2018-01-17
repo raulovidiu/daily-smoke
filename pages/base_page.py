@@ -1,5 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
@@ -65,3 +66,7 @@ class BasePage:
         except TimeoutException:
             return False
         return True
+
+    def _press_enter_button(self, locator):
+        element = self._find(locator)
+        element.send_keys(Keys.ENTER)

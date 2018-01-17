@@ -1,3 +1,6 @@
 Artifacts - Order IDs and their timestamp
 
 Order Number is 00200180, and was placed at Tue Jan 16 14:45:47 2018
+Order Number is 00200184, and was placed at Tue Jan 16 15:02:25 2018
+Order Number is 00200257, and was placed at Wed Jan 17 10:27:20 2018
+Order Number is 00200258, and was placed at Wed Jan 17 10:32:16 2018

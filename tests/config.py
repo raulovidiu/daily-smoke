@@ -4,4 +4,7 @@ product_2_url = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en/Browse
 product_3_url = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en/General-Labware/Beakers/Beakers%2C-Glass/PYREX%C2%AE-Beakers%2C-Low-Form%2C-Double-Scale%2C-Graduated/p/1000-100"
 b2b_url = "https://uat-ecatalog.corning.com/life-sciences/b2b/US/en"
 b2c_url = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en"
+login_url_b2c = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en/login"
+login_url_b2b = "https://uat-ecatalog.corning.com/life-sciences/b2b/US/en/login"
+quick_order_url = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en/quickOrder/?clear=true"
 browser = ""
