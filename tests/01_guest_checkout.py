@@ -37,7 +37,7 @@ class TestGuestCheckout():
     def test_guest_checkout(self, product, header_section, store_and_region, guest_login_checkout, checkout, order_confirmation_page, save_order_information_to_file):
         product.navigate_to_product1_page()
         store_and_region.choose_consumer_store()
-        store_and_region.choose_united_states_region()
+        store_and_region.choose_united_states_region_b2c()
         assert ("Product Number 3470" == product.get_product_id())
 
         product.click_on_add_to_cart_button()

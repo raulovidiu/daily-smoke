@@ -39,7 +39,7 @@ class TestAuthenticatedB2cCheckout():
         b2c_login.navigate_to_b2c_login_page()
 
         store_and_region.choose_consumer_store()
-        store_and_region.choose_united_states_region()
+        store_and_region.choose_united_states_region_b2c()
 
         b2c_login.login_as_a_b2c_user("cmilchis.ls@gmail.com", "Test@123a")
         time.sleep(10)
