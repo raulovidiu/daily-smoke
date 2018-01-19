@@ -2,7 +2,7 @@ import pytest
 import time
 
 from helpers import utils_methods
-from pages import store_and_region_section, b2b_login_page, b2b_family_page, header_section, product_page, \
+from pages import store_and_region_section, b2b_login_page, b2b_family_page, product_page, \
     checkout_page, order_confirmation_page
 from tests.config import b2b_username, b2b_password
 
@@ -21,10 +21,6 @@ class TestAuthenticatedB2bCheckout():
         return b2b_family_page.B2BFamilyPage(driver)
 
     @pytest.fixture()
-    def header(self, driver):
-        return header_section.Header(driver)
-
-    @pytest.fixture()
     def product(self, driver):
         return product_page.ProductPage(driver)
 
@@ -40,7 +36,7 @@ class TestAuthenticatedB2bCheckout():
     def save_order_information_to_file(self, driver):
         return utils_methods.SaveOrderInformationToFile(driver)
 
-    def test_b2b_client_checkout(self, store_and_region, b2b_login, b2b_family, header, product, checkout_section, order_confirmation_page, save_order_information_to_file):
+    def test_b2b_client_checkout(self, store_and_region, b2b_login, b2b_family, product, checkout_section, order_confirmation_page, save_order_information_to_file):
         b2b_login.navigate_to_b2b_login_page()
         b2b_login._take_screenshot("27_on_login_page.png")
 
@@ -88,12 +84,3 @@ class TestAuthenticatedB2bCheckout():
 
         the_returned_order_id = order_confirmation_page.return_order_id()
         save_order_information_to_file.b2b_save_order_information(the_returned_order_id)
-
-
-
-
-
-
-
-
-
