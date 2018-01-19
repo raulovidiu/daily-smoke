@@ -20,4 +20,6 @@ b2c_username = "cmilchis.ls@gmail.com"
 b2c_password = "Test@123a"
 b2b_username = "cosmin.milchis@usource.ro"
 b2b_password = "Test@123a"
-
+resource_library_url = "http://uat2-wcms.corning.com/worldwide/en/products/life-sciences/resource-library.html"
+certificate_product_number = 3599
+certificate_lot_number = 36205011
