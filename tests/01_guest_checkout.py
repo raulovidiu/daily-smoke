@@ -3,6 +3,7 @@ import pytest
 from helpers import utils_methods
 from pages import product_page, header_section, store_and_region_section, guest_login_and_checkout_page, checkout_page, \
     order_confirmation_page
+from tests.config import guest_email, guest_confirm_email
 
 
 class TestGuestCheckout():
@@ -75,7 +76,7 @@ class TestGuestCheckout():
         product.click_on_checkout_in_cart()
         product._take_screenshot("12_proceeding_to_checkout.png")
 
-        guest_login_checkout.checkout_as_guest("cmilchis@siteworx.com", "cmilchis@siteworx.com")
+        guest_login_checkout.checkout_as_guest(guest_email, guest_confirm_email)
         print ("\n Guest successfully authenticated")
         guest_login_checkout._take_screenshot("13_guest_authenticated.png")
 
