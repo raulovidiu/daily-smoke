@@ -17,5 +17,5 @@ local_order_artifacts_b2b = "D:\daily_smoke\screenshots\order_artifacts_b2b.txt"
 b2c_username = "cmilchis.ls@gmail.com"
 b2c_password = "Test@123a"
 b2b_username = "cosmin.milchis@usource.ro"
-b2b_password = "Test@123"
+b2b_password = "Test@123a"
 

@@ -22,7 +22,7 @@ class Checkout(BasePage):
     _add_address_button = {"by": By.CSS_SELECTOR, "value": 'button[id="addressSubmit"]'}
     _shipping_delivery_button = {"by": By.ID, "value": "shippingDeliverySubmit"}
 
-    _purchase_order_input = {"by": By.ID, "value": 'input[name="purchaseOrderNumber"]'}
+    _purchase_order_input = {"by": By.CSS_SELECTOR, "value": 'input[name="purchaseOrderNumber"]'}
 
     _delivery_method_button = {"by": By.ID, "value": "deliveryMethodSubmit"}
 
