@@ -22,7 +22,7 @@ class Checkout(BasePage):
     _add_address_button = {"by": By.CSS_SELECTOR, "value": 'button[id="addressSubmit"]'}
     _shipping_delivery_button = {"by": By.ID, "value": "shippingDeliverySubmit"}
 
-    _purchase_order_input = {"by": By.ID, "value": "PurchaseOrderNumber"}
+    _purchase_order_input = {"by": By.ID, "value": 'input[name="purchaseOrderNumber"]'}
 
     _delivery_method_button = {"by": By.ID, "value": "deliveryMethodSubmit"}
 
@@ -98,8 +98,8 @@ class Checkout(BasePage):
         # Payment Type section
         self._type(self._purchase_order_input, payment_number)
         self._press_enter_button(self._purchase_order_input)
-        # self._wait_for_is_displayed(self._payment_type_submit_button, 10)
-        # self._click(self._payment_type_submit_button)
+        self._wait_for_is_displayed(self._payment_type_submit_button, 10)
+        self._click(self._payment_type_submit_button)
 
         # Shipping Method section
         time.sleep(10)

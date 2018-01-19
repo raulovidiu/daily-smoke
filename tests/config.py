@@ -14,4 +14,8 @@ browser = ""
 local_order_artifacts_guest = "D:\daily_smoke\screenshots\order_artifacts_guest.txt"
 local_order_artifacts_b2c = "D:\daily_smoke\screenshots\order_artifacts_b2c.txt"
 local_order_artifacts_b2b = "D:\daily_smoke\screenshots\order_artifacts_b2b.txt"
+b2c_username = "cmilchis.ls@gmail.com"
+b2c_password = "Test@123a"
+b2b_username = "cosmin.milchis@usource.ro"
+b2b_password = "Test@123"
 

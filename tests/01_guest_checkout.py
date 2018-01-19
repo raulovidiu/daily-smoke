@@ -73,7 +73,6 @@ class TestGuestCheckout():
         print ("\n Guest successfully transitioned to the cart page")
 
         product.click_on_checkout_in_cart()
-        product.click_on_checkout_in_cart()
         product._take_screenshot("12_proceeding_to_checkout.png")
 
         guest_login_checkout.checkout_as_guest("cmilchis@siteworx.com", "cmilchis@siteworx.com")

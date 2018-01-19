@@ -4,6 +4,7 @@ import time
 from helpers import utils_methods
 from pages import b2c_login_page, store_and_region_section, quick_order_page, product_page, checkout_page, \
     order_confirmation_page
+from tests.config import b2c_username, b2c_password
 
 
 class TestAuthenticatedB2cCheckout():
@@ -44,7 +45,7 @@ class TestAuthenticatedB2cCheckout():
         store_and_region.choose_united_states_region_b2c()
         store_and_region._take_screenshot("19_selecting_usa_region.png")
 
-        b2c_login.login_as_a_b2c_user("cmilchis.ls@gmail.com", "Test@123a")
+        b2c_login.login_as_a_b2c_user(b2c_username, b2c_password)
         time.sleep(10)
         print("\n The B2C user successfully authenticated")
         b2c_login._take_screenshot("20_authenticating_b2c_user.png")
@@ -57,13 +58,12 @@ class TestAuthenticatedB2cCheckout():
         print("\n B2C user successfully added the products in the cart and reached the Cart section")
 
         product.click_on_checkout_in_cart()
-        product.click_on_checkout_in_cart()
         product._take_screenshot("23_proceeding_to_checkout.png")
         print("\n B2C user successfully reached the Checkout section")
 
         checkout_section.b2c_checkout_flow()
         checkout_section._take_screenshot("24_on_checkout.png")
-        checkout_section.add_card_details("Visa", "4111111111111111", "12", "2019", "113")
+        checkout_section.add_card_details("Visa", "4111111111111111", "12", "2019", "234")
         checkout_section._take_screenshot("25_provided_card_details.png")
 
         print ("\n B2C user successfully got through the checkout flow")
