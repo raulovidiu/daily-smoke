@@ -4,6 +4,7 @@ import time
 from helpers import utils_methods
 from pages import store_and_region_section, b2b_login_page, b2b_family_page, header_section, product_page, \
     checkout_page, order_confirmation_page
+from tests.config import b2b_username, b2b_password
 
 
 class TestAuthenticatedB2bCheckout():
@@ -48,7 +49,7 @@ class TestAuthenticatedB2bCheckout():
         store_and_region.choose_united_states_region_b2b()
         store_and_region._take_screenshot("29_selecting_usa_region.png")
 
-        b2b_login.login_as_a_b2b_user("cosmin.milchis@usource.ro", "Test@123a")
+        b2b_login.login_as_a_b2b_user(b2b_username, b2b_password)
         time.sleep(10)
         print("\n The B2B user successfully authenticated")
         b2b_family._take_screenshot("29_b2b_authenticated.png")
