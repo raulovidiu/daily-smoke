@@ -1,4 +1,5 @@
 import pytest
+import time
 
 from pages import product_family_page, store_and_region_section, resource_library_page
 
@@ -19,16 +20,21 @@ class TestFilteringOnFamilyPage():
     def test_selecting_pfp_variants(self, product_family, store_and_region, resource_library_page):
         product_family.navigate_to_product_family_page()
         print("\n The user reached the product page.")
-        resource_library_page._take_screenshot("41_user_reached_the_product_family_page.png")
+        resource_library_page._take_screenshot("41_user_selected_the_b2b_us_regio.png")
 
         store_and_region.choose_business_store()
         store_and_region.choose_united_states_region_b2b()
+        resource_library_page._take_screenshot("42_user_reached_the_family_product_page.png")
 
         product_family.select_specifications()
-        resource_library_page._take_screenshot("42_only_one_product_in_page.png")
+        resource_library_page._take_screenshot("43_specifications_selected.png")
         print("\n The user successfully selected the product specification")
 
-        print("\n Only the " + product_family.product_id() + " is present in the Products table")
+        product_family.return_list_of_elems()
+        resource_library_page._take_screenshot("44_only_one_product_in_page.png")
+
+
+
 
 
 
