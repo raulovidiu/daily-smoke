@@ -1,6 +1,5 @@
 import pytest
 import time
-
 from helpers import utils_methods
 from pages import b2c_login_page, store_and_region_section, quick_order_page, product_page, checkout_page, \
     order_confirmation_page

@@ -1,6 +1,5 @@
 import time
 from selenium.webdriver.common.by import By
-
 from pages.base_page import BasePage
 
 
@@ -111,6 +110,3 @@ class Checkout(BasePage):
         self._wait_for_is_displayed(self._terms_checkbox, 10)
         self._click(self._terms_checkbox)
         self._click(self._place_order_button)
-
-
-

@@ -1,6 +1,4 @@
 import pytest
-import time
-
 from pages import product_family_page, store_and_region_section, resource_library_page
 
 
@@ -32,10 +30,3 @@ class TestFilteringOnFamilyPage():
 
         product_family.return_list_of_elems()
         resource_library_page._take_screenshot("44_only_one_product_in_page.png")
-
-
-
-
-
-
-

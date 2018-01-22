@@ -1,5 +1,4 @@
 import pytest
-
 from helpers import utils_methods
 from pages import product_page, header_section, store_and_region_section, guest_login_and_checkout_page, checkout_page, \
     order_confirmation_page

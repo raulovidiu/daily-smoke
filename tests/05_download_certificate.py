@@ -1,5 +1,4 @@
 import pytest
-
 from pages import resource_library_page
 from tests.config import certificate_product_number, certificate_lot_number
 

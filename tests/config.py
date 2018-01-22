@@ -23,5 +23,4 @@ b2b_password = "Test@123a"
 resource_library_url = "http://uat2-wcms.corning.com/worldwide/en/products/life-sciences/resource-library.html"
 certificate_product_number = 3599
 certificate_lot_number = 36205011
-
 product_family_page_link = "https://uat-ecatalog.corning.com/life-sciences/b2c/US/en/Glassware/Serological-Pipets%2C-Glass/Stripette%C2%AE-Serological-Pipets/p/stripetteSerologicalPipets"
