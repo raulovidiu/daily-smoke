@@ -33,7 +33,7 @@ class Checkout(BasePage):
     _card_expiration_year_dropdown = {"by": By.CSS_SELECTOR, "value": 'select[name="card_expirationYear"]'}
     _security_code_input = {"by": By.CSS_SELECTOR, "value": 'input[name="card_cvNumber"]'}
     _terms_checkbox = {"by": By.CSS_SELECTOR, "value": 'input[name="termsCheck"]'}
-    _place_order_button = {"by": By.CSS_SELECTOR, "value": '.checkoutSummaryButton'}
+    _place_order_button = {"by": By.ID, "value": 'placeOrder'}
 
     _check_box = {"by": By.CSS_SELECTOR, "value": 'input[name="useDeliveryAddress"]'}
 
@@ -77,6 +77,7 @@ class Checkout(BasePage):
         self._type(self._security_code_input, security_code)
         self._wait_for_is_displayed(self._terms_checkbox, 5)
         self._click(self._terms_checkbox)
+        self._wait_for_is_displayed(self._place_order_button, 5)
         self._click(self._place_order_button)
 
     def b2c_checkout_flow(self):
