@@ -19,3 +19,5 @@ class TestDownloadCertificate():
 
         print("Downloading certificate")
         resource_library_page._take_screenshot("40_downloading_certificate.png")
+
+        assert resource_library_page._is_displayed(resource_library_page._download_certificate_button)

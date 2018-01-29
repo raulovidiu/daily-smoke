@@ -13,6 +13,7 @@ class ResourceLibraryPage(BasePage):
     _resource_library_breadcrumb = {"by": By.CSS_SELECTOR, "value": "span.app"}
     _product_number_input = {"by": By.CSS_SELECTOR, "value": 'input[name="catalogNumber"]'}
     _lot_number_input = {"by": By.CSS_SELECTOR, "value": 'input[name="lotId"]'}
+    _lookup_form_error_message = {"by": By.CLASS_NAME, "value": "certificate-lookup-form-error"}
     _download_certificate_button = {"by": By.CSS_SELECTOR, "value": 'button[value="Download Certificate"]'}
 
     def is_at_resource_library_page(self):
@@ -23,3 +24,7 @@ class ResourceLibraryPage(BasePage):
         self._type(self._lot_number_input, lot_num)
         self._wait_for_is_displayed(self._download_certificate_button, 10)
         self._click(self._download_certificate_button)
+
+    def _lookup_form_error_present(self):
+        self._wait_for_is_displayed(self._lookup_form_error_message, 10)
+        return self._is_displayed(self._lookup_form_error_message)
