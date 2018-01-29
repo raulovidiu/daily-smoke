@@ -9,7 +9,7 @@ class StoreAndRegionSection(BasePage):
     # Elements belonging to the Please Select a Channel Overlay
     _select_channel_overlay = {'by': By.ID, 'value': 'cboxLoadedContent'}
     _select_consumer_store_button = {'by': By.ID, 'value': 'chooseB2CButton'}
-    _select_business_store_button = {'by': By.ID, 'value': 'chooseB2Bbutton'}
+    _select_business_store_button = {'by': By.ID, 'value': 'b2bSelectionForm'}
 
     # Elements belonging to the Please Select a Region Page
     _united_states_link_b2c = {'by': By.CSS_SELECTOR, 'value': '.region:nth-child(1) a[href *="/b2c/US/en"]'}
