@@ -76,11 +76,5 @@ class TestAuthenticatedB2bCheckout():
         checkout_section.b2b_checkout_flow("123")
         checkout_section._take_screenshot("37_checking_out.png")
         print ("\n B2B user successfully got through the checkout flow")
-
-        print("\n" + order_confirmation_page.return_order_id())
         order_confirmation_page._take_screenshot("38_on_order_confirmation_page.png")
-
         print ("\n B2C user placed the order and successfully transitioned to the order confirmation page")
-
-        the_returned_order_id = order_confirmation_page.return_order_id()
-        save_order_information_to_file.b2b_save_order_information(the_returned_order_id)

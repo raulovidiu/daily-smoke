@@ -88,11 +88,6 @@ class TestGuestCheckout():
         checkout._take_screenshot("15_provided_credit_card_details.png")
 
         print ("\n Guest successfully got through the checkout flow")
-
-        print("\n" + order_confirmation_page.return_order_id())
-
         print ("\n Guest placed the order and successfully transitioned to the order confirmation page")
-        order_confirmation_page._take_screenshot("16_on_order_confirmation_page.png")
 
-        the_returned_order_id = order_confirmation_page.return_order_id()
-        save_order_information_to_file.guest_save_order_information(the_returned_order_id)
+        order_confirmation_page._take_screenshot("16_on_order_confirmation_page.png")
